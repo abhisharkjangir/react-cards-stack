@@ -26,4 +26,5 @@ class Yourcomponent extends React.Component {
 
 ### #Props
   * images : An aaray of images for e.g. ['imgurl1', 'imgurl2']
+  * More features are coming in next realease.
   
