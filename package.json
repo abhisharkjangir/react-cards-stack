@@ -1,7 +1,7 @@
 {
   "name": "react-cards-stack",
-  "version": "0.0.2",
-  "description": "coming soon...",
+  "version": "0.0.3",
+  "description": "A react component for creating cards stack.",
   "main": "build/index.js",
   "peerDependencies": {
     "react": "^15.5.4"
@@ -18,8 +18,12 @@
     "build": "webpack"
   },
   "author": {
-    "name": "Your name",
-    "email": "your email"
+    "name": "Abhishar Jangir",
+    "email": "abhisharjangir@ymail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhisharkjangir/react-cards-stack.git"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

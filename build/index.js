@@ -509,10 +509,13 @@ var Fancy = function (_React$Component) {
 
     _this.state = {
       stack: undefined,
-      imgs: undefined
+      imgs: undefined,
+      postivebtnlabel: undefined,
+      negativebtnlabel: undefined
     };
     _this.reject = _this.reject.bind(_this);
     _this.accept = _this.accept.bind(_this);
+    _this.onEndStack = _this.onEndStack.bind(_this);
     return _this;
   }
 
@@ -528,8 +531,15 @@ var Fancy = function (_React$Component) {
     key: 'componentWillMount',
     value: function componentWillMount() {
       this.setState({
-        imgs: this.props.images
+        imgs: this.props.images,
+        postivebtnlabel: this.props.postivebtnlabel || 'Yes',
+        negativebtnlabel: this.props.negativebtnlabel || 'No'
       });
+    }
+  }, {
+    key: 'onEndStack',
+    value: function onEndStack() {
+      this.props.onstackendfn();
     }
   }, {
     key: 'reject',
@@ -569,12 +579,12 @@ var Fancy = function (_React$Component) {
             _react2.default.createElement(
               'button',
               { onClick: this.reject },
-              'No'
+              this.state.postivebtnlabel
             ),
             _react2.default.createElement(
               'button',
               { onClick: this.accept },
-              'Yes'
+              this.state.negativebtnlabel
             )
           )
         )

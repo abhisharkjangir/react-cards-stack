@@ -9,12 +9,15 @@ import '../lib/stack.css'
 class Fancy extends React.Component {
   constructor(){
     super()
-    this.state ={
+    this.state = {
       stack : undefined,
-      imgs : undefined
+      imgs : undefined,
+      postivebtnlabel : undefined,
+      negativebtnlabel : undefined
     }
     this.reject = this.reject.bind(this)
     this.accept = this.accept.bind(this)
+    this.onEndStack = this.onEndStack.bind(this)
   }
 
   componentDidMount() {
@@ -26,8 +29,14 @@ class Fancy extends React.Component {
 
   componentWillMount(){
     this.setState({
-      imgs: this.props.images
+      imgs: this.props.images,
+      postivebtnlabel : this.props.postivebtnlabel || 'Yes',
+      negativebtnlabel :  this.props.negativebtnlabel || 'No'
     })
+  }
+
+  onEndStack(){
+    this.props.onstackendfn()
   }
 
   reject(){
@@ -53,10 +62,10 @@ class Fancy extends React.Component {
       <div className="controls">
         <div>
           <button  onClick={this.reject}>
-            No
+            {this.state.postivebtnlabel}
           </button>
           <button  onClick={this.accept} >
-            Yes
+            {this.state.negativebtnlabel}
           </button>
         </div>
       </div>
