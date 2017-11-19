@@ -36,7 +36,7 @@ class Fancy extends React.Component {
   }
 
   onEndStack(){
-    this.props.onstackendfn()
+    this.props.onstackendfn
   }
 
   reject(){
@@ -62,10 +62,10 @@ class Fancy extends React.Component {
       <div className="controls">
         <div>
           <button  onClick={this.reject}>
-            {this.state.postivebtnlabel}
+            {this.state.negativebtnlabel}
           </button>
           <button  onClick={this.accept} >
-            {this.state.negativebtnlabel}
+            {this.state.postivebtnlabel}
           </button>
         </div>
       </div>

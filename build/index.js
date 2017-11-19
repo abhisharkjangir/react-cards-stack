@@ -539,7 +539,7 @@ var Fancy = function (_React$Component) {
   }, {
     key: 'onEndStack',
     value: function onEndStack() {
-      this.props.onstackendfn();
+      this.props.onstackendfn;
     }
   }, {
     key: 'reject',
@@ -579,12 +579,12 @@ var Fancy = function (_React$Component) {
             _react2.default.createElement(
               'button',
               { onClick: this.reject },
-              this.state.postivebtnlabel
+              this.state.negativebtnlabel
             ),
             _react2.default.createElement(
               'button',
               { onClick: this.accept },
-              this.state.negativebtnlabel
+              this.state.postivebtnlabel
             )
           )
         )

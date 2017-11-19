@@ -20,11 +20,14 @@ class Yourcomponent extends React.Component {
       <Reactcardstack images={<Pass your images array here>} />
     )
   }
-  
+
  export Yourcomponent;
 ```
 
 ### #Props
   * images : An aaray of images for e.g. ['imgurl1', 'imgurl2']
-  * More features are coming in next realease.
+  * postivebtnlabel : "String" | default - Yes
+  * negativebtnlabel : "String" | default - No
+  * onstackendfn : "Function" | Will be called on Stack End
   
+  * More features are coming in next realease.
