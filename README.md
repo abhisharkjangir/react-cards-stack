@@ -25,9 +25,17 @@ class Yourcomponent extends React.Component {
 ```
 
 ### #Props
-  * images : An aaray of images for e.g. ['imgurl1', 'imgurl2']
+  * images : An array of images for e.g. ['imgurl1', 'imgurl2']
+  * imgclass : "String" - CSS
   * postivebtnlabel : "String" | default - Yes
   * negativebtnlabel : "String" | default - No
   * onstackendfn : "Function" | Will be called on Stack End
-  
-  * More features are coming in next realease.
+  * postivebtnclass : "String" - CSS
+  * negativebtnclass : "String" - CSS
+  * query : "String" - For specifying message
+  * queryclass : "String" - CSS
+
+  * More features are coming in next release.
+
+### #Feature Request
+  Drop a mail on abhisharjangir@ymail.com for any new feature request.

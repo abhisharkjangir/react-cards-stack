@@ -10,7 +10,9 @@ class Fancy extends React.Component {
       stack: undefined,
       imgs: undefined,
       postivebtnlabel: undefined,
-      negativebtnlabel: undefined
+      negativebtnlabel: undefined,
+      postivebtnclass : undefined,
+      negativebtnclass : undefined
     }
     this.reject = this.reject.bind(this)
     this.accept = this.accept.bind(this)
@@ -28,7 +30,12 @@ class Fancy extends React.Component {
     this.setState({
       imgs: this.props.images,
       postivebtnlabel: this.props.postivebtnlabel || 'Yes',
-      negativebtnlabel: this.props.negativebtnlabel || 'No'
+      negativebtnlabel: this.props.negativebtnlabel || 'No',
+      postivebtnclass : this.props.postivebtnclass || '',
+      negativebtnclass : this.props.negativebtnclass || '',
+      query : this.props.query || undefined,
+      queryclass : this.props.queryclass || '',
+      imgclass : this.props.imgclass || ''
     })
   }
 
@@ -52,16 +59,17 @@ class Fancy extends React.Component {
         <ul id="stack_krisna" className="stack stack--krisna">
           {
             this.state.imgs && this.state.imgs.map((img, i) => <div key={i} className="stack__item">
-              <img src={img}/>
+              <img src={img} className={this.state.imgclass}/>
             </div>)
           }
         </ul>
         <div className="controls">
           <div>
-            <button onClick={this.reject}>
+            <p className={this.state.queryclass}>{this.state.query}</p>
+            <button className={this.state.negativebtnclass} onClick={this.reject}>
               {this.state.negativebtnlabel}
             </button>
-            <button onClick={this.accept}>
+            <button className={this.state.postivebtnclass} onClick={this.accept}>
               {this.state.postivebtnlabel}
             </button>
           </div>

@@ -1,6 +1,6 @@
 {
   "name": "react-cards-stack",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "A react component for creating cards stack.",
   "main": "build/index.js",
   "peerDependencies": {

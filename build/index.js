@@ -405,7 +405,9 @@ var Fancy = function (_React$Component) {
       stack: undefined,
       imgs: undefined,
       postivebtnlabel: undefined,
-      negativebtnlabel: undefined
+      negativebtnlabel: undefined,
+      postivebtnclass: undefined,
+      negativebtnclass: undefined
     };
     _this.reject = _this.reject.bind(_this);
     _this.accept = _this.accept.bind(_this);
@@ -427,7 +429,12 @@ var Fancy = function (_React$Component) {
       this.setState({
         imgs: this.props.images,
         postivebtnlabel: this.props.postivebtnlabel || 'Yes',
-        negativebtnlabel: this.props.negativebtnlabel || 'No'
+        negativebtnlabel: this.props.negativebtnlabel || 'No',
+        postivebtnclass: this.props.postivebtnclass || '',
+        negativebtnclass: this.props.negativebtnclass || '',
+        query: this.props.query || undefined,
+        queryclass: this.props.queryclass || '',
+        imgclass: this.props.imgclass || ''
       });
     }
   }, {
@@ -450,6 +457,8 @@ var Fancy = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         'div',
         { className: 'stack-container' },
@@ -460,7 +469,7 @@ var Fancy = function (_React$Component) {
             return _react2.default.createElement(
               'div',
               { key: i, className: 'stack__item' },
-              _react2.default.createElement('img', { src: img })
+              _react2.default.createElement('img', { src: img, className: _this2.state.imgclass })
             );
           })
         ),
@@ -471,13 +480,18 @@ var Fancy = function (_React$Component) {
             'div',
             null,
             _react2.default.createElement(
+              'p',
+              { className: this.state.queryclass },
+              this.state.query
+            ),
+            _react2.default.createElement(
               'button',
-              { onClick: this.reject },
+              { className: this.state.negativebtnclass, onClick: this.reject },
               this.state.negativebtnlabel
             ),
             _react2.default.createElement(
               'button',
-              { onClick: this.accept },
+              { className: this.state.postivebtnclass, onClick: this.accept },
               this.state.postivebtnlabel
             )
           )
