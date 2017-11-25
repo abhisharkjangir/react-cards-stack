@@ -20,8 +20,8 @@ class Fancy extends React.Component {
   }
 
   componentDidMount() {
-    let stack = new Stack(document.getElementById('stack_krisna'))
-    stack.options.infinite = false
+    let stack = new Stack(document.getElementById('stack'));
+    stack.options.infinite = this.state.infinite
     stack.options.onEndStack = this.onEndStack
     this.setState({stack: stack})
   }
@@ -35,7 +35,9 @@ class Fancy extends React.Component {
       negativebtnclass : this.props.negativebtnclass || '',
       query : this.props.query || undefined,
       queryclass : this.props.queryclass || '',
-      imgclass : this.props.imgclass || ''
+      imgclass : this.props.imgclass || '',
+      effect : this.props.effect || 'krisna',
+      infinite : this.props.infinite || false
     })
   }
 
@@ -56,7 +58,7 @@ class Fancy extends React.Component {
   render() {
     return (
       <div className="stack-container">
-        <ul id="stack_krisna" className="stack stack--krisna">
+        <ul id="stack" className={`stack stack--${this.state.effect}`}>
         {this.state.imgs && this.state.imgs.map((img, i) =>
           <li key={i} className="stack__item">
           <img src={img} />

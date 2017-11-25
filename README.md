@@ -29,13 +29,17 @@ class Yourcomponent extends React.Component {
   * imgclass : "String" - CSS
   * postivebtnlabel : "String" | default - Yes
   * negativebtnlabel : "String" | default - No
-  * onstackendfn : "Function" | Will be called on Stack End
+  * onstackendfn : "Function" | Will be called on Stack End | Note : Will only works if 'infinite' is set 'false'
   * postivebtnclass : "String" - CSS
   * negativebtnclass : "String" - CSS
   * query : "String" - For specifying message
   * queryclass : "String" - CSS
+  * effect : "String" | default - krisna | Effect Ref: https://tympanus.net/Development/CardStackEffects/
+  * infinite : "Boolean" | default - false | Note : If 'infinite' is 'true' then onstackendfn won't be invoke.
 
-  * More features are coming in next release.
+### #Upcoming Features
+  * Animations delay and duration control
+  * 'onstackendfn' will get object of +ve & -ve response count.
 
 ### #Feature Request
   Drop a mail on abhisharjangir@ymail.com for any new feature request.

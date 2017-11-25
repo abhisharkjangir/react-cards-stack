@@ -418,8 +418,8 @@ var Fancy = function (_React$Component) {
   _createClass(Fancy, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var stack = new Stack(document.getElementById('stack_krisna'));
-      stack.options.infinite = false;
+      var stack = new Stack(document.getElementById('stack'));
+      stack.options.infinite = this.state.infinite;
       stack.options.onEndStack = this.onEndStack;
       this.setState({ stack: stack });
     }
@@ -434,7 +434,9 @@ var Fancy = function (_React$Component) {
         negativebtnclass: this.props.negativebtnclass || '',
         query: this.props.query || undefined,
         queryclass: this.props.queryclass || '',
-        imgclass: this.props.imgclass || ''
+        imgclass: this.props.imgclass || '',
+        effect: this.props.effect || 'krisna',
+        infinite: this.props.infinite || false
       });
     }
   }, {
@@ -462,7 +464,7 @@ var Fancy = function (_React$Component) {
         { className: 'stack-container' },
         _react2.default.createElement(
           'ul',
-          { id: 'stack_krisna', className: 'stack stack--krisna' },
+          { id: 'stack', className: 'stack stack--' + this.state.effect },
           this.state.imgs && this.state.imgs.map(function (img, i) {
             return _react2.default.createElement(
               'li',
