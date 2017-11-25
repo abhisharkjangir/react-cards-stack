@@ -57,12 +57,11 @@ class Fancy extends React.Component {
     return (
       <div className="stack-container">
         <ul id="stack_krisna" className="stack stack--krisna">
-          {
-            this.state.imgs && this.state.imgs.map((img, i) => <div key={i} className="stack__item">
-              <img src={img} className={this.state.imgclass}/>
-            </div>)
-          }
-        </ul>
+        {this.state.imgs && this.state.imgs.map((img, i) =>
+          <li key={i} className="stack__item">
+          <img src={img} />
+        </li>)}
+      </ul>
         <div className="controls">
           <div>
             <p className={this.state.queryclass}>{this.state.query}</p>

@@ -1,5 +1,5 @@
 ### react-cards-stack
-#### A react for creating cards stack for a quiz.
+#### A react component for creating cards stack for a quiz.
 
 ![ScreenShot](https://i.imgur.com/1lqze2U.png)
 
