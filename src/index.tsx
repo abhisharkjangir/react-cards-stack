@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
-import 'modernizr.js';
-import 'stack.js';
-import 'stack.css';
+import React, { Component, createRef } from 'react';
+import { Stack } from './stack';
+import './stack.css';
 
-type State = {
-  stack?: unknown;
+export type State = {
   imgs?: unknown[];
   query?: unknown;
   queryclass?: unknown;
@@ -17,8 +15,8 @@ type State = {
   infinite?: unknown;
 };
 
-type Props = {
-  images?: unknown[];
+export type Props = {
+  images: unknown[];
   postivebtnlabel?: unknown;
   negativebtnlabel?: unknown;
   postivebtnclass?: unknown;
@@ -31,9 +29,10 @@ type Props = {
   onstackendfn?: () => void;
 };
 
-class Fancy extends Component<Props, State> {
+type StackType = ReturnType<typeof Stack>;
+
+export class CardStack extends Component<Props, State> {
   state = {
-    stack: undefined,
     imgs: [],
     query: undefined,
     queryclass: undefined,
@@ -46,11 +45,15 @@ class Fancy extends Component<Props, State> {
     infinite: undefined,
   };
 
+  stack: StackType | null = null;
+
+  ref = createRef<HTMLUListElement>();
+
   componentDidMount() {
-    let stack = new Stack(document.getElementById('stack'));
-    stack.options.infinite = this.state.infinite;
-    stack.options.onEndStack = this.onEndStack;
-    this.setState({ stack: stack });
+    this.stack = Stack(this.ref.current, {
+      infinite: !!this.state.infinite,
+      onEndStack: this.onEndStack,
+    });
   }
 
   componentWillMount() {
@@ -73,23 +76,21 @@ class Fancy extends Component<Props, State> {
   };
 
   reject = () => {
-    let stack = this.state.stack;
-    stack.reject();
+    this.stack?.reject();
   };
 
   accept = () => {
-    let stack = this.state.stack;
-    stack.accept();
+    this.stack?.accept();
   };
 
   render() {
     return (
       <div className="stack-container">
-        <ul id="stack" className={`stack stack--${this.state.effect}`}>
+        <ul ref={this.ref} className={`stack stack--${this.state.effect}`}>
           {this.state.imgs &&
             this.state.imgs.map((img, i) => (
               <li key={i} className="stack__item">
-                <img src={img} />
+                <img src={img} alt="" />
               </li>
             ))}
         </ul>
@@ -114,5 +115,3 @@ class Fancy extends Component<Props, State> {
     );
   }
 }
-
-export default Fancy;
